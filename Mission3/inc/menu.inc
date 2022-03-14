@@ -1,7 +1,7 @@
 <nav>
     <ul>
         <li class="menu"><a href="index.html">Accueil</a></li>
-        <li class="menu"><a href=""> Les biens</a>
+        <li class="menu"><a href="lesBiens.php"> Les biens</a>
             <ul class="sub-menu">
                 <li><a href=""> Maisons </a></li>
                 <li><a href=""> Appartements </a></li>
