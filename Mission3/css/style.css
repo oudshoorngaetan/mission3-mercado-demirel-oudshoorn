@@ -365,3 +365,16 @@ textarea {
     height: auto;
 }
 
+/* Table */
+
+table.biens {
+    margin: 1% 15%;
+    border-collapse: collapse;
+}
+
+table.biens th {
+    padding: 5px 5px;
+    background-color:lightgrey;
+    border-style: solid;
+    justify-content: center;
+}

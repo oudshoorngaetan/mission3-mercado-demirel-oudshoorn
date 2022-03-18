@@ -12,8 +12,13 @@
         <script src="../javascript/PDF.js" defer></script> 
     </head>
     <body>
+        <header class="accueil">	
+            <picture class="logo">
+                <img src="img/accueil1_2.png" alt="logo">
+            </picture>		
+            <h1 class="index"> La vie,<br>la maison </h1>
+        </header>
         <?php
-        include_once'inc/entete.inc';
         include_once'inc/menu.inc';
         ?>
         <article class="intro">
@@ -24,7 +29,7 @@
                 Voir même au Portugal et au Luxembourg </p>
         </article>
         <?php
-            include_once'inc/piedDePage.inc';
+        include_once'inc/piedDePage.inc';
         ?>
     </body>
 </html>
