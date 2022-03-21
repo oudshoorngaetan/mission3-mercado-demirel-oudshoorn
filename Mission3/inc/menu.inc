@@ -9,7 +9,8 @@
                 <li><a href=""> Terrains nus </a></li>
                 <li><a href=""> Immeubles </a></li>
             </ul>
-        </li>
+        </li>        
         <li class="menu"><a href="contact.html">Contact</a></li>
+        <li class="menu"><a href="formulaire.php">Se connecter</a></li>
     </ul>
 </nav>
