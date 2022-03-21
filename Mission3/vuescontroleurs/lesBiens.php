@@ -11,7 +11,7 @@
         <table class="biens">
             <thead>
                 <tr>
-                    <th colspan="6">La liste des biens</th>
+                    <th colspan="4">La liste des biens</th>
                 </tr>
             </thead>
             <tr>
