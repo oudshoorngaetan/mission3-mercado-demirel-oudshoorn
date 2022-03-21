@@ -15,12 +15,10 @@
                 </tr>
             </thead>
             <tr>
-                <th>ID</th>
+                <th>Ref</th>
                 <th>Ville</th>
                 <th>Type</th>
                 <th>Prix</th>
-                <th>Superficie</th>
-                <th>Nombre de pièces</th>
             </tr>
             <?php
             include_once'../modeles/mesFonctionsAccesBDD.php';
@@ -29,7 +27,7 @@
             $lesBiens = getLesBiens($pdo);
             foreach ($lesBiens as $unBien) {
                 echo '<tr><th>' . $unBien['id'] . '</th><th>' . $unBien['ville'] . '</th><th>' . $unBien['libelle'] . '</th><th>'
-                . $unBien['Prix'] . '</th><th>' . $unBien['Superficie'] . '</th><th>' . $unBien['NBpieces'] . '</th></tr>';
+                . $unBien['Prix'] . '</th></tr>';
             }
             ?>
         </table>
