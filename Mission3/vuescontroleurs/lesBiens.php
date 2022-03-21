@@ -11,11 +11,12 @@
         <table class="biens">
             <thead>
                 <tr>
-                    <th colspan="5">La liste des biens</th>
+                    <th colspan="6">La liste des biens</th>
                 </tr>
             </thead>
             <tr>
                 <th>ID</th>
+                <th>Ville</th>
                 <th>Type</th>
                 <th>Prix</th>
                 <th>Superficie</th>
@@ -28,7 +29,7 @@
             $lesBiens = getLesBiens($pdo);
             foreach ($lesBiens as $unBien) {
                 echo '<tr><th>' . $unBien['id'] . '</th><th>' . $unBien['ville'] . '</th><th>' . $unBien['libelle'] . '</th><th>'
-                . $unBien['prix'] . '</th><th>' . $unBien['superficie'] . '</th><th>' . $unBien['NBpieces'] . '</th></tr>';
+                . $unBien['Prix'] . '</th><th>' . $unBien['Superficie'] . '</th><th>' . $unBien['NBpieces'] . '</th></tr>';
             }
             ?>
         </table>
