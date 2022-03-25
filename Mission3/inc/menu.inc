@@ -1,6 +1,6 @@
 <nav>
     <ul>
-        <li class="menu"><a href="index.html">Accueil</a></li>
+        <li class="menu"><a href="index.php">Accueil</a></li>
         <li class="menu"><a href="lesBiens.php"> Les biens</a>
             <ul class="sub-menu">
                 <li><a href=""> Maisons </a></li>
@@ -11,6 +11,7 @@
             </ul>
         </li>        
         <li class="menu"><a href="contact.html">Contact</a></li>
+        <li class="menu"><a href="recherche.php">Rechercher</a></li>
         <li class="menu"><a href="formulaire.php">Se connecter</a></li>
     </ul>
 </nav>

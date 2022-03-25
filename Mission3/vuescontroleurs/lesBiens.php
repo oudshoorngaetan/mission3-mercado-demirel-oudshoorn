@@ -24,10 +24,21 @@
             include_once'../modeles/mesFonctionsAccesBDD.php';
             include_once'../modeles/accesBiens.php';
             $pdo = connexionBDD();
-            $lesBiens = getLesBiens($pdo);
-            foreach ($lesBiens as $unBien) {
-                echo '<tr><th>' . $unBien['id'] . '</th><th>' . $unBien['ville'] . '</th><th>' . $unBien['libelle'] . '</th><th>'
-                . $unBien['Prix'] . '</th></tr>';
+            if (count($_POST) != 0) {
+                $ville = $_POST['ville'];
+                $type = $_POST['type'];
+                include_once'../modeles/requeteRecherche.php';
+                $lesBiens = rechercheBiens($pdo, $type, $ville);
+                foreach ($lesBiens as $unBien) {
+                    echo '<tr><th>' . $unBien['ID'] . '</th><th>' . $unBien['ville'] . '</th><th>' . $unBien['libelle'] . '</th><th>'
+                    . $unBien['prix'] . '</th></tr>';
+                }
+            } else {
+                $lesBiens = getLesBiens($pdo);
+                foreach ($lesBiens as $unBien) {
+                    echo '<tr><th>' . $unBien['id'] . '</th><th>' . $unBien['ville'] . '</th><th>' . $unBien['libelle'] . '</th><th>'
+                    . $unBien['Prix'] . '</th></tr>';
+                }
             }
             ?>
         </table>
