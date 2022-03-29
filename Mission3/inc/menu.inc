@@ -10,8 +10,8 @@
                 <li><a href=""> Immeubles </a></li>
             </ul>
         </li>        
-        <li class="menu"><a href="contact.html">Contact</a></li>
         <li class="menu"><a href="recherche.php">Rechercher</a></li>
+        <li class="menu"><a href="contact.html">Contact</a></li>
         <li class="menu"><a href="formulaire.php">Se connecter</a></li>
     </ul>
 </nav>
