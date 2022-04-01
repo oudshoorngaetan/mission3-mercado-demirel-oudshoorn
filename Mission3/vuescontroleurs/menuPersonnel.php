@@ -5,19 +5,27 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
+    <?php
+    session_start();
+    include_once'../inc/head.inc';
+    if (!isset($_SESSION["connexion"])) {
+        if ($_SESSION["connexion"] != 'oui') {
+            header('Location: ../vuescontroleurs/index.php');
+            die();
+        }
+    }
+    ?>
     <body>
-        <h1>Menu Agent Immobilier</h1>
-        <?php        
-        echo '<p> Connecté en tant que User</p>';
+        <h1>Menu d'ajout Agent Immobilier</h1>
+        <?php
+        echo '<p> Connecté en tant qu\'Agent</p>';
         ?>
-        <p> Ajout bien </p>        
-        <p> Description du bien </p>
-        <input type="text" name="description" id="description"><br/>
-        <label for="type" title="Veuillez choisir le type" class="oblig">Types :</label>
+        <span> Ajout bien </span> <br/>    
+        <form name="ajout" id="ajout" method="post" action="../modeles/ajoutBien.php">
+            <label for="description">Description du Bien</label><br>
+            <textarea id="description" name="description" rows="4" cols="50" required>
+            </textarea><br/>
+            <label for="type" title="Veuillez choisir le type" class="oblig">Types :</label>
             <?php
             include_once '../modeles/mesFonctionsAccesBDD.php';
             include_once '../modeles/typeBiens.php';
@@ -29,14 +37,15 @@ and open the template in the editor.
             deconnexionBDD($pdo);
             ?>
             <br/>
-            <p> Prix </p>
-        <input type="number" name="prix" id="prix"><br/>
-        <p> Ville </p>
-        <input type="text" name="ville" id="ville"><br/>
-        <p> Superficie </p>
-        <input type="number" name="superficie" id="superficie">
-        <p> Nombre de pièces </p>
-        <input type="number" name="nbpieces" id="nbpieces">
-        <button type='submit' class="btnValider" name="submit" value="envoyer">AJOUTER</button>
+            <span> Prix </span> 
+            <input type="number" name="prix" id="prix" required><br/>
+            <span> Ville </span> 
+            <input type="text" name="ville" id="ville" required><br/>
+            <span> Superficie </span> 
+            <input type="number" name="superficie" id="superficie" required><br/>
+            <span> Nombre de pièces </span> 
+            <input type="number" name="nbpieces" id="nbpieces" required>
+            <input type="submit" name="valid" id="valid" value="Ajouter"/>
+        </form>
     </body>
 </html>
