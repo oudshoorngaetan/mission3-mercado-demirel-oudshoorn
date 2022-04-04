@@ -27,8 +27,11 @@
             if (count($_POST) != 0) {
                 $ville = $_POST['ville'];
                 $type = $_POST['type'];
+                $min = $_POST['min'];
+                $max = $_POST['max'];
+                $jardin = $_POST['jardin'];
                 include_once'../modeles/requeteRecherche.php';
-                $lesBiens = rechercheBiens($pdo, $type, $ville);
+                $lesBiens = rechercheBiens($pdo, $type, $ville, $min, $max, $jardin);
                 foreach ($lesBiens as $unBien) {
                     echo '<tr><th>' . $unBien['ID'] . '</th><th>' . $unBien['ville'] . '</th><th>' . $unBien['libelle'] . '</th><th>'
                     . $unBien['prix'] . '</th></tr>';
