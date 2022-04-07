@@ -364,13 +364,35 @@ section img {
 /* Table */
 
 table.biens {
-    margin: 1% 15%;
+    width: 50%;
+    margin: 3% 0%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     border-collapse: collapse;
+    color: white;
 }
 
-table.biens th {
-    padding: 5px 5px;
-    background-color:lightgrey;
+tr {
+    background-color: #00549F;
+}
+
+table.biens td {
     border-style: solid;
-    justify-content: center;
+    border-color: black;
+    padding: 2% 0%;
+}
+
+table.biens thead td {
+    font-weight: bold;
+}
+
+.entete td {
+    font-weight: bold;
+}
+
+.survolage:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
 }

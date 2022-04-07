@@ -15,7 +15,7 @@ function rechercheBiens($pdo, $type, $ville, $min, $max, $jardin) {
         $requete.=" AND jardin=:jardin";
     }
     
-    $insert = $pdo->prepare($requete);    //"AND ville=:ville AND type.ID=:type AND prix=:prix AND jardin=:jardin"
+    $insert = $pdo->prepare($requete);
     
     if($type!=0){
       $bind = $insert->bindValue(":type",$type,  PDO::PARAM_INT);  

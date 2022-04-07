@@ -13,6 +13,7 @@
                     echo '<li class = "menu">Menu Agent'
                     . '<ul class="sub-menu">'
                     . '<li><a href="menuPersonnel.php"> Ajout Bien </a></li>'
+                    . '<li><a href="../modeles/deconnexion.php"> Déconnexion </a></li>'
                     . '</ul>'
                     . '</li>';
                 } else {
