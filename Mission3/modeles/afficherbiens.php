@@ -1,8 +1,8 @@
 <?php
-function getLeBien($pdo,$leBien){
+function getLeBien($pdo,$IDbien){
     $insert = $pdo->prepare("SELECT * FROM biens WHERE ID=:id");
-    $bind=$insert->bindValue(":id",$leBien, PDO::PARAM_INT);
+    $bind=$insert->bindValue(":id",$IDbien, PDO::PARAM_INT);
     $execute=$insert->execute();
-    $unBien=$insert->fetchAll();    
+    $unBien=$insert->fetch();    
     return $unBien;
 }

@@ -284,7 +284,7 @@ section img {
 /* Boutons suivant et précédent */
 .prev, .next {
     cursor: pointer;
-    position: absolute;
+    position: relative;
     top: 50%;
     width: auto;
     margin-top: -22px;
@@ -319,7 +319,7 @@ section img {
     cursor: pointer;
     height: 15px;
     width: 15px;
-    margin: 0 2px;
+    margin: 0 3px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;

@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 07 avr. 2022 à 18:15
--- Version du serveur : 5.7.36
+-- Généré le : ven. 08 avr. 2022 à 09:57
+-- Version du serveur : 8.0.27
 -- Version de PHP : 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `biens`;
 CREATE TABLE IF NOT EXISTS `biens` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `Description` varchar(6000) NOT NULL,
-  `IDType` int(11) NOT NULL,
-  `prix` int(11) NOT NULL,
+  `IDType` int NOT NULL,
+  `prix` int NOT NULL,
   `ville` varchar(25) NOT NULL,
-  `superficie` int(11) NOT NULL,
-  `nbpieces` int(11) NOT NULL,
-  `jardin` int(11) NOT NULL,
+  `superficie` int NOT NULL,
+  `nbpieces` int NOT NULL,
+  `jardin` int NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `idtype` (`IDType`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
@@ -59,7 +59,7 @@ INSERT INTO `biens` (`ID`, `Description`, `IDType`, `prix`, `ville`, `superficie
 
 DROP TABLE IF EXISTS `compte`;
 CREATE TABLE IF NOT EXISTS `compte` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `email` varchar(60) NOT NULL,
   `password` varchar(60) NOT NULL,
   PRIMARY KEY (`ID`)
@@ -80,13 +80,26 @@ INSERT INTO `compte` (`ID`, `email`, `password`) VALUES
 
 DROP TABLE IF EXISTS `images`;
 CREATE TABLE IF NOT EXISTS `images` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `IDbien` int(11) NOT NULL,
-  `nom` varchar(35) NOT NULL,
+  `nom` varchar(35) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `IDbien` int NOT NULL,
   `chemin` varchar(50) NOT NULL,
-  PRIMARY KEY (`ID`),
+  PRIMARY KEY (`nom`),
   KEY `idbien` (`IDbien`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `images`
+--
+
+INSERT INTO `images` (`nom`, `IDbien`, `chemin`) VALUES
+('local 1_7', 1, '../img/local1_7'),
+('local1_1', 1, '../img/local1_1'),
+('local1_2', 1, '../img/local1_2'),
+('local1_3', 1, '../img/local1_3'),
+('local1_4', 1, '../img/local1_4'),
+('local1_5', 1, '../img/local1_5'),
+('local1_6', 1, '../img/local1_6'),
+('local1_8', 1, '../img/local1_8');
 
 -- --------------------------------------------------------
 
@@ -96,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `images` (
 
 DROP TABLE IF EXISTS `type`;
 CREATE TABLE IF NOT EXISTS `type` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `libelle` varchar(35) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
@@ -106,11 +119,11 @@ CREATE TABLE IF NOT EXISTS `type` (
 --
 
 INSERT INTO `type` (`ID`, `libelle`) VALUES
-(1, 'Maison'),
-(2, 'Appartement'),
-(3, 'Local'),
-(4, 'Terrain Nu'),
-(5, 'Immeuble');
+(1, 'maison'),
+(2, 'appartement'),
+(3, 'local'),
+(4, 'terrain_nu'),
+(5, 'immeuble');
 
 --
 -- Contraintes pour les tables déchargées
