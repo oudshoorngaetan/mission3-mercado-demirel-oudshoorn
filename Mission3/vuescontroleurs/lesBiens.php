@@ -25,8 +25,10 @@ include_once'../inc/menu.inc';
         $min = $_POST['min'];
         $max = $_POST['max'];
         $jardin = $_POST['jardin'];
+        $superficie = $_POST['superficie'];
+        $nbpieces = $_POST['nbpieces'];
         include_once'../modeles/requeteRecherche.php';
-        $lesBiens = rechercheBiens($pdo, $type, $ville, $min, $max, $jardin);
+        $lesBiens = rechercheBiens($pdo, $type, $ville, $min, $max, $jardin, $superficie, $nbpieces);
         foreach ($lesBiens as $unBien) {
             echo '<form method="post" id="bien' . $unBien['ID'] . '" action="bien.php"><input type="hidden" name="bien" value="' . $unBien['ID'] . '"/></form>'
             . '<tr class="survolage" onclick=\'document.getElementById("bien' . $unBien['ID'] . '").submit()\'>'

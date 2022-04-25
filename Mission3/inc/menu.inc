@@ -12,7 +12,8 @@
                 if ($_SESSION["connexion"] == 'oui') {
                     echo '<li class = "menu">Menu Agent'
                     . '<ul class="sub-menu">'
-                    . '<li><a href="menuPersonnel.php"> Ajout Bien </a></li>'
+                    . '<li><a href="ajoutBien.php"> Ajout Bien </a></li>'
+                    . '<li><a href="modifierBien.php"> Modifier Bien </a></li>'
                     . '<li><a href="../modeles/deconnexion.php"> Déconnexion </a></li>'
                     . '</ul>'
                     . '</li>';
