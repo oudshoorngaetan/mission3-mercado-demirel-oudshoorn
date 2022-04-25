@@ -7,8 +7,9 @@ if(!isset($_SESSION["connexion"])) {
     }
 } else {
     include_once 'mesFonctionsAccesBDD.php';
-    include_once 'fonctionAjoutBien.php';
+    include_once 'fonctionModifierBien.php';
     $pdo = connexionBDD();
+    $ID = $_POST['id'];
     $description = $_POST['description'];
     $idtype = $_POST['type'];
     $prix = $_POST['prix'];
@@ -16,8 +17,8 @@ if(!isset($_SESSION["connexion"])) {
     $superficie = $_POST['superficie'];
     $nbpieces = $_POST['nbpieces'];
     $jardin = $_POST['jardin'];
-    if(ajoutBien($pdo,$description,$idtype,$prix,$ville,$superficie,$nbpieces,$jardin)){
-        header('Location: ../vuescontroleurs/menuPersonnel.php');
+    if(modifierBien($pdo,$ID,$description,$idtype,$prix,$ville,$superficie,$nbpieces,$jardin)){
+        header('Location: ../vuescontroleurs/modifierBien.php');
         die();
     }
     else {

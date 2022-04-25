@@ -17,7 +17,7 @@ if(!isset($_SESSION["connexion"])) {
     $nbpieces = $_POST['nbpieces'];
     $jardin = $_POST['jardin'];
     if(ajoutBien($pdo,$description,$idtype,$prix,$ville,$superficie,$nbpieces,$jardin)){
-        header('Location: ../vuescontroleurs/menuPersonnel.php');
+        header('Location: ../vuescontroleurs/ajoutBien.php');
         die();
     }
     else {
