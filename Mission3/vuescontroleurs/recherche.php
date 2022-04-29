@@ -31,7 +31,11 @@ include_once'../inc/menu.inc';
     <label for="jardin0" title="Non">NON</label>
     <input type="radio" name="jardin" id="jardin0" value="0" >
     <label for="jardin1" title="OUI">OUI</label>
-    <input type="radio" name="jardin" id="jardin1" value="1">
+    <input type="radio" name="jardin" id="jardin1" value="1"><br>
+    <label for="superficie" title="superficie du bien">Superficie minimum en m²</label>
+    <input type="number" value="" name="superficie" id="superficie"><br>
+    <label for="nbpieces" title="Nombre de pieces">Nombre de pieces minimum</label>
+    <input type="number" value="" name="nbpieces" id="nbpieces"><br>
     <input type="submit" name="valid" id="valid" value="Rechercher"/>
 </form>
 <?php
