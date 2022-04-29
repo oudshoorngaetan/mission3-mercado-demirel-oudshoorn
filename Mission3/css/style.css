@@ -14,7 +14,7 @@ img {
 
 /* Footer et header */
 
-header > h1{	
+header > h1{
     font-family:  fangsong;
     position: relative;
     text-align: center;
@@ -30,7 +30,7 @@ h1.index {
     font-size: 60px;
 }
 
-header{	
+header{
     background-image: url(../img/accueil1_1.jpg);
     background-size: cover;
 }
@@ -59,7 +59,9 @@ footer{
     background-color: #00549F ;
     color: #fff;
     font-size: 17px;
-    bottom: 0; left: 0; right: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 footer > p {
@@ -90,7 +92,7 @@ nav{
 nav > ul {
     display: flex;
     text-align: center;
-    box-shadow: 0px 1px 2px 1px 
+    box-shadow: 0px 1px 2px 1px
         rgba(0,0,0,0.3);
     height: var(--hauteur-menu);
     position: relative;
@@ -143,7 +145,7 @@ li > a {
 .sub-menu > li > a {
     align-items: center;
     height: 50px;
-    width: 100%;  
+    width: 100%;
     display: flex;
     justify-content:center;
 }
@@ -199,18 +201,18 @@ nav > ul > li:hover > a{
 
 @keyframes apparitionSub-Menu {
     0% {
-        box-shadow: 0px 3px 3px 1px 
+        box-shadow: 0px 3px 3px 1px
             rgba(0,0,0,0);
         border-top: 3px solid #2169EC;
     }
     30% {
-        box-shadow: 0px 3px 3px 1px 
+        box-shadow: 0px 3px 3px 1px
             rgba(0,0,0,0.3);
     }
     100% {
         max-height: 50em;
         border-top: 3px solid #2169EC;
-        box-shadow: 0px 3px 3px 1px 
+        box-shadow: 0px 3px 3px 1px
             rgba(0,0,0,0.3);
     }
 }
@@ -258,7 +260,9 @@ section img {
     padding-bottom: 3%;
 }
 
-* {box-sizing:border-box}
+* {
+    box-sizing:border-box
+}
 
 /* Slideshow container */
 .slideshow-container {
@@ -339,13 +343,21 @@ section img {
 }
 
 @-webkit-keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
 }
 
 @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
 }
 
 /* Bootstrap */
@@ -391,8 +403,58 @@ table.biens thead td {
     font-weight: bold;
 }
 
-.survolage:hover{
+.survolage:hover {
     cursor: pointer;
     background-color: white;
     color: black;
+}
+
+/* Menu Agent */
+
+h2.formulaire {
+    text-align: center;
+}
+
+input {
+    font-weight: bold;
+    margin-left: 1em;
+}
+
+legend {
+    font-weight: bold;
+    color: #00549F;
+    background: transparent;
+    text-align:center;
+}
+
+#piedForm {
+    font: bold 1.1em arial, hevetica, sans-serif;
+    color: white;
+    background: #00549F;
+    margin: 0;
+    padding: .5em;
+    text-align: right;
+}
+#piedForm input {
+    font-weight: bold; /*** Pour am�liorer la lisibilit� des boutons ***/
+    margin-left: 1em;
+    cursor: pointer;
+    padding: 15px 15px;
+}
+
+fieldset {
+    margin: 0% 5%;
+    padding-inline-start: 0em;
+    padding-inline-end: 0em;
+    padding-block-end: 0em;
+    border-color:  #00549F;
+    border-style: solid;
+}
+
+#corpForm input,#corpForm label,#corpForm textArea,#corpForm select {
+    margin: 5px 5px;
+}
+
+#corpForm {
+    margin: 1% 5% 2% 5%;
 }
