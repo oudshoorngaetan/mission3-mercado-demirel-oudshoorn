@@ -6,7 +6,7 @@ function printToPDF() {
         useCORS: true,
         onrendered: function (canvas) {
 
-            var pdf = new jsPDF();
+            var pdf = new jsPDF('p', 'pt', 'letter');
 
             var pageHeight = 980;
             var pageWidth = 900;
@@ -27,8 +27,7 @@ function printToPDF() {
                 var ctx = onePageCanvas.getContext('2d');
                 ctx.drawImage(srcImg, sX, sY, sWidth, sHeight, dX, dY, dWidth, dHeight);                
                 var canvasDataURL = 'data:image/png;base64,/9j/4AAQSkZJRgABAQEASABIAAD/...';
-                var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
-                var canvasDataURL = onePageCanvas.toDataURL("image/jpeg", 1.0);
+                var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);              
                 
                 var width = onePageCanvas.width;
                 var height = onePageCanvas.clientHeight;
@@ -40,7 +39,7 @@ function printToPDF() {
                 pdf.addImage(canvasDataURL, 'PNG', 20, 40, (width * .62), (height * .62)); // add content to the page
                 
             }
-            pdf.save('test.pdf');
+            pdf.save('fichebien.pdf');
         }
     });
 }
