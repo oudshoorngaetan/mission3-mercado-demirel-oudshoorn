@@ -409,7 +409,7 @@ table.biens thead td {
     color: black;
 }
 
-<<<<<<< HEAD
+/* HEAD */
 button{
     background-color: #385EC4;
     box-sizing: inherit; 
@@ -426,7 +426,8 @@ button{
 
 button:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-=======
+}
+
 /* Menu Agent */
 
 h2.formulaire {
@@ -446,7 +447,6 @@ legend {
 }
 
 #piedForm {
-    font: bold 1.1em arial, hevetica, sans-serif;
     color: white;
     background: #00549F;
     margin: 0;
@@ -475,5 +475,4 @@ fieldset {
 
 #corpForm {
     margin: 1% 5% 2% 5%;
->>>>>>> c9c410208a89f1b58bac5cd2ee0247533d65fec7
 }
