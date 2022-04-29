@@ -18,7 +18,10 @@ if ($IDBien != 0) {
     $LEBien = getLeBien($pdo, $IDBien);
     $lesImages = getLesImages($pdo, $IDBien);
     if(isset($lesImages[0])){
-    echo '<article>
+    echo '<button  id="pdf" type="button" onclick="printToPDF()">
+                Télécharger fiche pdf
+          </button>
+        <article>
 		<section class="ligne">
 			<img src="' . $lesImages[0]['chemin'] . '" style="width:100%" alt="' . $lesImages[0]['nom'] . '">
 			<section class="colonne">
