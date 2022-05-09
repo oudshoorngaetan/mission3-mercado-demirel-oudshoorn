@@ -14,6 +14,7 @@
                     . '<ul class="sub-menu">'
                     . '<li><a href="ajoutBien.php"> Ajout Bien </a></li>'
                     . '<li><a href="modifierBien.php"> Modifier Bien </a></li>'
+                    . '<li><a href="supprimerBien.php"> Supprimer Bien </a></li>'
                     . '<li><a href="../modeles/deconnexion.php"> Déconnexion </a></li>'
                     . '</ul>'
                     . '</li>';
