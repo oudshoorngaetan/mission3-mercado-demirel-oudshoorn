@@ -33,7 +33,7 @@ include_once'../inc/menu.inc';
             echo '<form method="post" id="bien' . $unBien['ID'] . '" action="bien.php"><input type="hidden" name="bien" value="' . $unBien['ID'] . '"/></form>'
             . '<tr class="survolage" onclick=\'document.getElementById("bien' . $unBien['ID'] . '").submit()\'>'
             . '<td>' . $unBien['ID'] . '</td>'
-            . '<td>' . $unBien['ville'] . '</td>'
+            . '<td id="ville">' . $unBien['ville'] . '</td>'
             . '</td><td>' . $unBien['libelle'] . '</td>'
             . '<td>' . $unBien['prix'] . '</td>'
             . '</tr>';
