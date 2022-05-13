@@ -187,7 +187,7 @@ nav > ul > li:hover > a{
 
 .sub-menu {
     margin-top: var(--hauteur-menu);
-    width: 16%;
+    width: 21%;
     text-align: center;
     overflow: hidden;
     max-height: 0;
