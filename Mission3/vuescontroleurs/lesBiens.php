@@ -34,13 +34,10 @@ include_once'../inc/menu.inc';
             echo '<form method="post" id="bien' . $unBien['ID'] . '" action="bien.php"><input type="hidden" name="bien" value="' . $unBien['ID'] . '"/></form>'
             . '<tr class="survolage" onclick=\'document.getElementById("bien' . $unBien['ID'] . '").submit()\'>'
             . '<td>' . $unBien['ID'] . '</td>'
-<<<<<<< HEAD
             . '<td id="ville">' . $unBien['ville'] . '</td>'
             . '</td><td>' . $unBien['libelle'] . '</td>'
-=======
             . '<td>' . $unBien['ville'] . '</td>'
             . '</td><td>' . $libelle . '</td>'
->>>>>>> 9a79e3fb417e4ca11cc10e3bd1f1a79b29a6e5ce
             . '<td>' . $unBien['prix'] . '</td>'
             . '</tr>';
         } else {

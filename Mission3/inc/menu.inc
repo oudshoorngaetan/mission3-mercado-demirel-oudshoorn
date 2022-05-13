@@ -6,7 +6,6 @@
         <li class="menu"><a href="index.php">Accueil</a></li>
         <li class="menu"><a href="lesBiens.php"> Les biens</a></li>        
         <li class="menu"><a href="recherche.php">Rechercher</a></li>
-        <li class="menu"><a href="contact.html">Contact</a></li>
             <?php
             if (isset($_SESSION["connexion"])) {
                 if ($_SESSION["connexion"] == 'oui') {
