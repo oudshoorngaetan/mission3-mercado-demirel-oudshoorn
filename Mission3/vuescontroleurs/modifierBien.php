@@ -19,7 +19,7 @@
     include_once '../modeles/mesFonctionsAccesBDD.php';
     $pdo = connexionBDD();
     echo '<label for="id">Références des biens :</label>'
-    . '<select id="id" name="id" title="Sélectionner un ID"';
+    . '<select id="id" name="id" title="Sélectionner un ID">';
     $lesID = getLesID($pdo);
     var_dump($lesID);
     foreach ($lesID as $unID) {
