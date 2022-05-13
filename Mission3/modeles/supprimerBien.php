@@ -6,10 +6,12 @@ if(!isset($_SESSION["connexion"])) {
         die();
     }
 } else {
+    
     include_once 'mesFonctionsAccesBDD.php';
     include_once 'fonctionSupprimerBien.php';
     $pdo = connexionBDD();
-    $ID = $_POST['id'];
+    $ID = (int) $_POST['id'];
+    var_dump($ID);
     if(supprimerBien($pdo,$ID)){
         header('Location: ../vuescontroleurs/supprimerBien.php');
         die();

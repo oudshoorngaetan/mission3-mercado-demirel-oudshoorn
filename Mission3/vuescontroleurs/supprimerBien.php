@@ -10,10 +10,14 @@ if (!isset($_SESSION["connexion"])) {
 }
 
 echo '<h2 class="formulaire">Menu de modification d\'Agent Immobilier</h2>'
- . '<form name = "modification" id = "modification" method = "post" action = "../modeles/supprimerBien.php">'
+ . '<form name = "modification" id = "modification" method = "post" action = "../vuescontroleurs/lesBiens.php">'
  . '<fieldset>'
  . '<legend>Suppression d\'un bien</legend>'
  . '<div id="corpForm">';
+if (isset($_SESSION["suppression"]) && $_SESSION["suppression"]=='oui') {
+    echo '<p>Le bien a été supprimé</p>';
+    $_SESSION["suppression"]=null;
+}
 include_once '../modeles/getLesID.php';
 include_once '../modeles/mesFonctionsAccesBDD.php';
 $pdo = connexionBDD();
@@ -27,7 +31,7 @@ foreach ($lesID as $unID) {
 echo '</select><br>'
  . '</div>'
  . '<div id="piedForm">'
- . '<input type="submit" name="valid" id="valid" value="Supprimer"/>'
+ . '<input type="submit" name="valid" id="valid" value="Rechercher"/>'
  . '</div>'
  . '</fieldset>'
  . '</form>'

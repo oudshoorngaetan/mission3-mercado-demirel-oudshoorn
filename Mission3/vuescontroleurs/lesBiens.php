@@ -20,25 +20,25 @@ include_once'../inc/menu.inc';
     include_once'../modeles/accesBiens.php';
     $pdo = connexionBDD();
     if (count($_POST) != 0) {
-        if ($_POST['id'] != 0) {
+        if ($_POST['id'] != 0 && isset($_SESSION["connexion"]) && $_SESSION["connexion"] == 'oui') {
+            $_SESSION["suppression"] = 'oui';
             $id = $_POST['id'];
             include_once'../modeles/afficherbiens.php';
             include_once'../modeles/typeBiens.php';
             $unBien = getLeBien($pdo, $id);
             $lesTypes = getTypes($pdo);
             foreach ($lesTypes as $unType) {
-                if($unType['ID']==$id){
+                if ($unType['ID'] == $unBien['IDType']) {
                     $libelle = $unType['libelle'];
                 }
             }
-            echo '<form method="post" id="bien' . $unBien['ID'] . '" action="bien.php"><input type="hidden" name="bien" value="' . $unBien['ID'] . '"/></form>'
-            . '<tr class="survolage" onclick=\'document.getElementById("bien' . $unBien['ID'] . '").submit()\'>'
-            . '<td>' . $unBien['ID'] . '</td>'
+            echo '<form method="post" id="bien' . $id . '" action="../modeles/supprimerBien.php"><input type="hidden" name="id" value="' . $id . '"/></form>'
+            . '<tr class="survolage" onclick=\'document.getElementById("bien' . $id . '").submit()\'>'
+            . '<td>' . $id . '</td>'
             . '<td id="ville">' . $unBien['ville'] . '</td>'
-            . '</td><td>' . $unBien['libelle'] . '</td>'
-            . '<td>' . $unBien['ville'] . '</td>'
             . '</td><td>' . $libelle . '</td>'
             . '<td>' . $unBien['prix'] . '</td>'
+            . '<button onclick=\'document.getElementById("bien' . $id . '").submit()\'>Supprimer</button>'
             . '</tr>';
         } else {
             $ville = $_POST['ville'];
@@ -74,6 +74,6 @@ include_once'../inc/menu.inc';
     }
     ?>
 </table>
-    <?php
-    include_once'../inc/piedDePage.inc';
-    ?>
+<?php
+include_once'../inc/piedDePage.inc';
+?>
