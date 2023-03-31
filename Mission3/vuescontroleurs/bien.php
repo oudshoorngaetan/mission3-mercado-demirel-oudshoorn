@@ -22,7 +22,7 @@ if ($IDBien != 0) {
          <div id="invoice">
         <article>
 		<section class="ligne">
-			<img src="' . $lesImages[0]['chemin'] . '" style="width:100%" alt="' . $lesImages[0]['nom'] . '">
+			<img src="' . $lesImages[0]['chemin'] . '" alt="' . $lesImages[0]['nom'] . '">
 			<section class="colonne">
 				<h2>Description</h2>
 				<p>' . $LEBien['Description'] . '</p>
@@ -51,6 +51,7 @@ if ($IDBien != 0) {
         echo '</div>
                 <script src="../javascript/slide.js"></script>
                 <article>
+                </article>
                 </div>';
     } else {
         echo 'Erreur d\'affichage';

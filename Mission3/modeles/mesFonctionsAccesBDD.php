@@ -1,9 +1,9 @@
 <?php
 
 function connexionBDD() {
-    $bdd = 'mysql:host=localhost;dbname=laforetbdd';
+    $bdd = 'mysql:host=localhost;dbname=laforetbdd;charset=UTF8';
     $user = 'root';
-    $password = '';
+    $password = 'newpass';
     try {
 
         $ObjConnexion = new PDO($bdd, $user, $password, array(

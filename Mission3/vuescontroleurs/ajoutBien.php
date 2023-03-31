@@ -3,7 +3,7 @@
     include_once'../inc/menu.inc';
     include_once'../inc/head.inc';
     if (!isset($_SESSION["connexion"])) {
-        if ($_SESSION["connexion"] != 'oui') {
+        if ($_SESSION["connexion"] != 'agent') {
             header('Location: ../vuescontroleurs/index.php');
             die();
         }

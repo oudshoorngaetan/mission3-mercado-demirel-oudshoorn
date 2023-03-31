@@ -3,10 +3,13 @@
     include_once'../inc/menu.inc';
     include_once'../inc/head.inc';
     if (!isset($_SESSION["connexion"])) {
-        if ($_SESSION["connexion"] != 'oui') {
+        if ($_SESSION["connexion"] != 'agent') {
             header('Location: ../vuescontroleurs/index.php');
             die();
         }
+    } else {
+        header('Location: ../vuescontroleurs/index.php');
+        die();
     }
     ?>
     <h2 class='formulaire'>Menu de modification d'Agent Immobilier</h2>
@@ -59,10 +62,10 @@
     <input type="radio" name="jardin" id="jardin1" value="1">
     <label for="jardin2" title="Pas de modification">Pas de modification</label>
     <input type="radio" name="jardin" id="jardin1" value="2" checked="checked">
-    </div>
-    <div id="piedForm">
-        <input type="submit" name="valid" id="valid" value="Modifier"/>
-    </div>
+</div>
+<div id="piedForm">
+    <input type="submit" name="valid" id="valid" value="Modifier"/>
+</div>
 </fieldset>
 </form>
 </body>

@@ -32,22 +32,16 @@ include_once'../inc/menu.inc';
                     $libelle = $unType['libelle'];
                 }
             }
-<<<<<<< HEAD
             echo '<form method="post" id="bien' . $id . '" action="../modeles/supprimerBien.php"><input type="hidden" name="id" value="' . $id . '"/></form>'
             . '<tr class="survolage" onclick=\'document.getElementById("bien' . $id . '").submit()\'>'
             . '<td>' . $id . '</td>'
-            . '<td id="ville">' . $unBien['ville'] . '</td>'
-=======
+            . '<td id="ville">' . $unBien['ville'] . '</td>';
             echo '<form method="post" id="bien' . $unBien['ID'] . '" action="bien.php"><input type="hidden" name="bien" value="' . $unBien['ID'] . '"/></form>'
             . '<tr class="survolage" onclick=\'document.getElementById("bien' . $unBien['ID'] . '").submit()\'>'
             . '<td>' . $unBien['ID'] . '</td>'
-<<<<<<< HEAD
-=======
             . '<td id="ville">' . $unBien['ville'] . '</td>'
             . '</td><td>' . $unBien['libelle'] . '</td>'
->>>>>>> 49f9414b8bcaf24348d242c7acfa79e9044b78c8
             . '<td>' . $unBien['ville'] . '</td>'
->>>>>>> c53515c15472d7f3fd3792b787708f6a0f0de4b4
             . '</td><td>' . $libelle . '</td>'
             . '<td>' . $unBien['prix'] . '</td>'
             . '<button onclick=\'document.getElementById("bien' . $id . '").submit()\'>Supprimer</button>'

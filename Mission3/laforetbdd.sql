@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0-1.fc36
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : ven. 08 avr. 2022 à 09:57
--- Version du serveur : 8.0.27
--- Version de PHP : 7.4.26
+-- Hôte : localhost
+-- Généré le : lun. 14 nov. 2022 à 09:55
+-- Version du serveur : 10.5.16-MariaDB
+-- Version de PHP : 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,19 +27,16 @@ SET time_zone = "+00:00";
 -- Structure de la table `biens`
 --
 
-DROP TABLE IF EXISTS `biens`;
-CREATE TABLE IF NOT EXISTS `biens` (
-  `ID` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `biens` (
+  `ID` int(11) NOT NULL,
   `Description` varchar(6000) NOT NULL,
-  `IDType` int NOT NULL,
-  `prix` int NOT NULL,
+  `IDType` int(11) NOT NULL,
+  `prix` int(11) NOT NULL,
   `ville` varchar(25) NOT NULL,
-  `superficie` int NOT NULL,
-  `nbpieces` int NOT NULL,
-  `jardin` int NOT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `idtype` (`IDType`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `superficie` int(11) NOT NULL,
+  `nbpieces` int(11) NOT NULL,
+  `jardin` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `biens`
@@ -57,20 +54,26 @@ INSERT INTO `biens` (`ID`, `Description`, `IDType`, `prix`, `ville`, `superficie
 -- Structure de la table `compte`
 --
 
-DROP TABLE IF EXISTS `compte`;
-CREATE TABLE IF NOT EXISTS `compte` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(60) NOT NULL,
+CREATE TABLE `compte` (
+  `ID` int(11) NOT NULL,
+  `nom` varchar(30) NOT NULL,
+  `prenom` varchar(20) NOT NULL,
+  `email` varchar(150) NOT NULL,
   `password` varchar(60) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `consentement` tinyint(1) NOT NULL,
+  `type` varchar(30) NOT NULL,
+  `dateCrea` date NOT NULL,
+  `dateLastConn` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `compte`
 --
 
-INSERT INTO `compte` (`ID`, `email`, `password`) VALUES
-(1, 'basile.mercado@gmail.com', '$2y$10$y/rIbnjCxtPKeHLOPpNVoufbBZzx473GknAxFewgH.uPUrWZzrBMu');
+INSERT INTO `compte` (`ID`, `nom`, `prenom`, `email`, `password`, `consentement`, `type`, `dateCrea`, `dateLastConn`) VALUES
+(1, 'Mercado', 'Basile', 'basile.mercado@gmail.com', '$2y$10$y/rIbnjCxtPKeHLOPpNVoufbBZzx473GknAxFewgH.uPUrWZzrBMu', 1, 'agent', '2022-09-20', '2022-10-17'),
+(22, 'Truc', 'Bidule', 'mahcin@azedaz.com', '$2y$10$iqmaLkO7MS1CX30eVl9uD.Q6WYDznyFLUkaa2Vd8nwXtOJnO.ePO2', 1, 'utilisateur', '2022-10-17', '2022-10-17'),
+(32, 'Oudshoorn', 'Gaeztan', 'gaetan.oudshoorn@gmail.com', '$2y$10$rl.5jn7PsH8GxV8pVwH4jOwtZagqUd1fBQFiA5t37nn30Rm7qGswK', 1, 'utilisateur', '2022-11-14', '2022-11-14');
 
 -- --------------------------------------------------------
 
@@ -78,13 +81,10 @@ INSERT INTO `compte` (`ID`, `email`, `password`) VALUES
 -- Structure de la table `images`
 --
 
-DROP TABLE IF EXISTS `images`;
-CREATE TABLE IF NOT EXISTS `images` (
-  `nom` varchar(35) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `IDbien` int NOT NULL,
-  `chemin` varchar(50) NOT NULL,
-  PRIMARY KEY (`nom`),
-  KEY `idbien` (`IDbien`)
+CREATE TABLE `images` (
+  `nom` varchar(35) NOT NULL,
+  `IDbien` int(11) NOT NULL,
+  `chemin` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -92,14 +92,72 @@ CREATE TABLE IF NOT EXISTS `images` (
 --
 
 INSERT INTO `images` (`nom`, `IDbien`, `chemin`) VALUES
-('local 1_7', 1, '../img/local1_7'),
-('local1_1', 1, '../img/local1_1'),
-('local1_2', 1, '../img/local1_2'),
-('local1_3', 1, '../img/local1_3'),
-('local1_4', 1, '../img/local1_4'),
-('local1_5', 1, '../img/local1_5'),
-('local1_6', 1, '../img/local1_6'),
-('local1_8', 1, '../img/local1_8');
+('local 1_7', 1, '../img/local1_7.jpg'),
+('local1_1', 1, '../img/local1_1.jpg'),
+('local1_2', 1, '../img/local1_2.jpg'),
+('local1_3', 1, '../img/local1_3.jpg'),
+('local1_4', 1, '../img/local1_4.jpg'),
+('local1_5', 1, '../img/local1_5.jpg'),
+('local1_6', 1, '../img/local1_6.jpg'),
+('local1_8', 1, '../img/local1_8.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `json`
+--
+
+CREATE TABLE `json` (
+  `id` int(11) NOT NULL,
+  `json` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `operation`
+--
+
+CREATE TABLE `operation` (
+  `libelle` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `operation`
+--
+
+INSERT INTO `operation` (`libelle`) VALUES
+('connexion'),
+('creerCompte'),
+('deconnexion');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `trace`
+--
+
+CREATE TABLE `trace` (
+  `id` int(11) NOT NULL,
+  `user` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `operation` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `trace`
+--
+
+INSERT INTO `trace` (`id`, `user`, `date`, `operation`) VALUES
+(7, 1, '2022-10-17 11:17:56', 'connexion'),
+(8, 1, '2022-10-17 11:17:59', 'deconnexion'),
+(29, 16, '2022-11-14 09:36:51', 'deconnexion'),
+(31, 21, '2022-11-14 09:55:51', 'deconnexion'),
+(33, 29, '2022-11-14 09:56:41', 'deconnexion'),
+(35, 30, '2022-11-14 10:10:12', 'deconnexion'),
+(36, 30, '2022-11-14 10:10:24', 'deconnexion'),
+(38, 31, '2022-11-14 10:11:14', 'deconnexion'),
+(39, 32, '2022-11-14 10:55:05', 'connexion');
 
 -- --------------------------------------------------------
 
@@ -107,12 +165,10 @@ INSERT INTO `images` (`nom`, `IDbien`, `chemin`) VALUES
 -- Structure de la table `type`
 --
 
-DROP TABLE IF EXISTS `type`;
-CREATE TABLE IF NOT EXISTS `type` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `libelle` varchar(35) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+CREATE TABLE `type` (
+  `ID` int(11) NOT NULL,
+  `libelle` varchar(35) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `type`
@@ -124,6 +180,89 @@ INSERT INTO `type` (`ID`, `libelle`) VALUES
 (3, 'local'),
 (4, 'terrain_nu'),
 (5, 'immeuble');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `biens`
+--
+ALTER TABLE `biens`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `idtype` (`IDType`);
+
+--
+-- Index pour la table `compte`
+--
+ALTER TABLE `compte`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Index pour la table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`nom`),
+  ADD KEY `idbien` (`IDbien`);
+
+--
+-- Index pour la table `json`
+--
+ALTER TABLE `json`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `operation`
+--
+ALTER TABLE `operation`
+  ADD PRIMARY KEY (`libelle`);
+
+--
+-- Index pour la table `trace`
+--
+ALTER TABLE `trace`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ce_trace_operation` (`operation`);
+
+--
+-- Index pour la table `type`
+--
+ALTER TABLE `type`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `biens`
+--
+ALTER TABLE `biens`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT pour la table `compte`
+--
+ALTER TABLE `compte`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT pour la table `json`
+--
+ALTER TABLE `json`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT pour la table `trace`
+--
+ALTER TABLE `trace`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT pour la table `type`
+--
+ALTER TABLE `type`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Contraintes pour les tables déchargées
@@ -140,6 +279,26 @@ ALTER TABLE `biens`
 --
 ALTER TABLE `images`
   ADD CONSTRAINT `idbien` FOREIGN KEY (`IDbien`) REFERENCES `biens` (`ID`);
+
+--
+-- Contraintes pour la table `json`
+--
+ALTER TABLE `json`
+  ADD CONSTRAINT `json_ibfk_1` FOREIGN KEY (`id`) REFERENCES `compte` (`ID`);
+
+--
+-- Contraintes pour la table `trace`
+--
+ALTER TABLE `trace`
+  ADD CONSTRAINT `ce_trace_operation` FOREIGN KEY (`operation`) REFERENCES `operation` (`libelle`);
+
+DELIMITER $$
+--
+-- Évènements
+--
+CREATE DEFINER=`root`@`localhost` EVENT `Suppression compte quotidien` ON SCHEDULE EVERY 1 DAY STARTS '2022-10-10 11:58:34' ON COMPLETION NOT PRESERVE ENABLE COMMENT 'ça supprime' DO delete from compte where DATEDIFF(CURRENT_DATE, dateLastConn) > 365$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
