@@ -7,9 +7,6 @@
             header('Location: ../vuescontroleurs/index.php');
             die();
         }
-    } else {
-        header('Location: ../vuescontroleurs/index.php');
-        die();
     }
     ?>
     <h2 class='formulaire'>Menu de modification d'Agent Immobilier</h2>
