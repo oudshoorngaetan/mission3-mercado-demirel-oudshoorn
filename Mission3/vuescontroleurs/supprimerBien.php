@@ -31,7 +31,7 @@ foreach ($lesID as $unID) {
 echo '</select><br>'
  . '</div>'
  . '<div id="piedForm">'
- . '<input type="submit" name="valid" id="valid" value="Rechercher"/>'
+ . '<input type="submit" name="valid" id="valid" value="Supprimer"/>'
  . '</div>'
  . '</fieldset>'
  . '</form>'
