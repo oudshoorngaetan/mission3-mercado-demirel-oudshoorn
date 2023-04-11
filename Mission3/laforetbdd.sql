@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0-1.fc36
+-- version 5.2.1-1.fc36
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 14 nov. 2022 à 09:55
--- Version du serveur : 10.5.16-MariaDB
--- Version de PHP : 8.1.12
+-- Généré le : mar. 11 avr. 2023 à 11:25
+-- Version du serveur : 10.5.18-MariaDB
+-- Version de PHP : 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,7 @@ CREATE TABLE `biens` (
   `superficie` int(11) NOT NULL,
   `nbpieces` int(11) NOT NULL,
   `jardin` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Déchargement des données de la table `biens`
@@ -64,16 +64,15 @@ CREATE TABLE `compte` (
   `type` varchar(30) NOT NULL,
   `dateCrea` date NOT NULL,
   `dateLastConn` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Déchargement des données de la table `compte`
 --
 
 INSERT INTO `compte` (`ID`, `nom`, `prenom`, `email`, `password`, `consentement`, `type`, `dateCrea`, `dateLastConn`) VALUES
-(1, 'Mercado', 'Basile', 'basile.mercado@gmail.com', '$2y$10$y/rIbnjCxtPKeHLOPpNVoufbBZzx473GknAxFewgH.uPUrWZzrBMu', 1, 'agent', '2022-09-20', '2022-10-17'),
-(22, 'Truc', 'Bidule', 'mahcin@azedaz.com', '$2y$10$iqmaLkO7MS1CX30eVl9uD.Q6WYDznyFLUkaa2Vd8nwXtOJnO.ePO2', 1, 'utilisateur', '2022-10-17', '2022-10-17'),
-(32, 'Oudshoorn', 'Gaeztan', 'gaetan.oudshoorn@gmail.com', '$2y$10$rl.5jn7PsH8GxV8pVwH4jOwtZagqUd1fBQFiA5t37nn30Rm7qGswK', 1, 'utilisateur', '2022-11-14', '2022-11-14');
+(34, 'Oudshoorn', 'Gaetan', 'zyymD0tGYpTskTOW9xrzCuF/b5wphmOpgW2HT1dCuFPb8xceBKjHxxy1vMZjLpfpXdNSJiB0sWEjxdpPIY6tTRecNwZ2biqWr4Wf4clkPog=', '$2y$10$KBXWGbZRn24vXXEapOplcetjL/bGge30B2QVxGvkXZnKgCzHLcJOC', 1, 'agent', '2023-03-31', '2023-04-03'),
+(35, 'Mercado', 'Basile', 'YIuTo+xpKGRkEKRsHVoq5MsBd12a0UXREYfeivp1bFXAJXSE2u+pSOOoTSF5TOzwjzJz9q+yq5eq8pxmIizKC05/F22OsV9NC140N6a3Mkw=', '$2y$10$BGrnlNV6J9f655pQEqbrKe/dI5eXyl9.vmmGN7KxLD01JNehG.7we', 1, 'utilisateur', '2023-03-31', '2023-04-03');
 
 -- --------------------------------------------------------
 
@@ -85,7 +84,7 @@ CREATE TABLE `images` (
   `nom` varchar(35) NOT NULL,
   `IDbien` int(11) NOT NULL,
   `chemin` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Déchargement des données de la table `images`
@@ -110,7 +109,7 @@ INSERT INTO `images` (`nom`, `IDbien`, `chemin`) VALUES
 CREATE TABLE `json` (
   `id` int(11) NOT NULL,
   `json` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -120,7 +119,7 @@ CREATE TABLE `json` (
 
 CREATE TABLE `operation` (
   `libelle` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Déchargement des données de la table `operation`
@@ -142,7 +141,7 @@ CREATE TABLE `trace` (
   `user` int(11) NOT NULL,
   `date` datetime NOT NULL,
   `operation` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Déchargement des données de la table `trace`
@@ -157,7 +156,19 @@ INSERT INTO `trace` (`id`, `user`, `date`, `operation`) VALUES
 (35, 30, '2022-11-14 10:10:12', 'deconnexion'),
 (36, 30, '2022-11-14 10:10:24', 'deconnexion'),
 (38, 31, '2022-11-14 10:11:14', 'deconnexion'),
-(39, 32, '2022-11-14 10:55:05', 'connexion');
+(39, 32, '2022-11-14 10:55:05', 'connexion'),
+(40, 33, '2023-03-20 10:00:14', 'connexion'),
+(41, 33, '2023-03-20 10:09:18', 'deconnexion'),
+(42, 34, '2023-03-31 08:35:50', 'connexion'),
+(43, 34, '2023-03-31 08:36:16', 'deconnexion'),
+(44, 34, '2023-03-31 08:36:24', 'connexion'),
+(45, 34, '2023-03-31 08:36:31', 'deconnexion'),
+(46, 35, '2023-03-31 08:37:38', 'connexion'),
+(47, 35, '2023-03-31 08:39:57', 'deconnexion'),
+(48, 34, '2023-04-03 11:44:54', 'connexion'),
+(49, 34, '2023-04-03 11:44:58', 'deconnexion'),
+(50, 35, '2023-04-03 11:45:07', 'connexion'),
+(51, 35, '2023-04-03 11:46:18', 'deconnexion');
 
 -- --------------------------------------------------------
 
@@ -168,7 +179,7 @@ INSERT INTO `trace` (`id`, `user`, `date`, `operation`) VALUES
 CREATE TABLE `type` (
   `ID` int(11) NOT NULL,
   `libelle` varchar(35) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Déchargement des données de la table `type`
@@ -244,7 +255,7 @@ ALTER TABLE `biens`
 -- AUTO_INCREMENT pour la table `compte`
 --
 ALTER TABLE `compte`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT pour la table `json`
@@ -256,7 +267,7 @@ ALTER TABLE `json`
 -- AUTO_INCREMENT pour la table `trace`
 --
 ALTER TABLE `trace`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT pour la table `type`
