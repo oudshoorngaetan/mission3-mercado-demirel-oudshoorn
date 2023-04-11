@@ -9,8 +9,8 @@ if (!isset($_SESSION["connexion"])) {
     }
 }
 
-echo '<h2 class="formulaire">Menu de modification d\'Agent Immobilier</h2>'
- . '<form name = "modification" id = "modification" method = "post" action = "../vuescontroleurs/lesBiens.php">'
+echo '<h2 class="formulaire">Menu de suppresion d\'Agent Immobilier</h2>'
+ . '<form name = "suppression" id = "suppression" method = "post" action = "../modeles/supprimerBien.php">'
  . '<fieldset>'
  . '<legend>Suppression d\'un bien</legend>'
  . '<div id="corpForm">';
